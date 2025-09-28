@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Smart Traffic Control Dashboard - Bright Theme</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-mode="Autonomous AI">
+
+    <div class="dashboard-wrapper">
+        <header class="top-bar">
+            <h1 class="logo"><i class="fas fa-traffic-light"></i> Smart Traffic Control</h1>
+            <div class="header-status">
+                <div class="status-item"><i class="fas fa-sun"></i> 24°C | 10km Clear</div>
+                
+                <div class="status-item ai-mode-selector">
+                    <label for="aiMode">Mode:</label>
+                    <select id="aiMode" onchange="window.dashboard.handleModeChange(this.value)">
+                        <option value="Autonomous AI">Autonomous AI</option>
+                        <option value="AI Assisted">AI Assisted</option>
+                        <option value="Manual Override">Manual Override</option>
+                    </select>
+                </div>
+                
+                <div class="status-item"><i class="fas fa-database text-green"></i> DB: Online</div>
+                <button class="alerts-btn"><i class="fas fa-bell"></i> 3 Alerts</button>
+            </div>
+        </header>
+
+        <main class="main-layout">
+            
+            <div class="center-content">
+                
+                <section class="card predictions-panel">
+                    <h2><i class="fas fa-bolt"></i> Predictions & Event Impact</h2>
+                    <div id="predictionMetrics">
+                        </div>
+                </section>
+                
+                <section class="metric-row" id="metricRow">
+                    </section>
+
+                <section class="card camera-section">
+                    <h2><i class="fas fa-desktop"></i> Live Camera Feed</h2>
+                    <div class="camera-controls">
+                        <span class="live-status">LIVE • AI ANALYSIS</span>
+                        <select class="control-select">
+                            <option>Main St & 1st Ave - Downtown</option>
+                            <option>Highway 101 North</option>
+                        </select>
+                    </div>
+                    <div class="video-placeholder">
+                        <p>Live Video Stream & Detection Overlays Here</p>
+                    </div>
+                </section>
+                
+                <section class="card traffic-count-details">
+                    <h2><i class="fas fa-chart-line"></i> Real-Time Traffic Analysis</h2>
+                    <div class="count-metrics" id="countMetrics">
+                        </div>
+                </section>
+                
+                <section class="card tracking-detail-panel">
+                    <h2><i class="fas fa-car-crash"></i> Emergency Tracking Details <span class="active-count">3 Active</span></h2>
+                    <div id="emergencyTrackingDetail">
+                        </div>
+                </section>
+
+                <section class="card recommendations-panel hidden" id="recommendationsPanel">
+                    <h2><i class="fas fa-lightbulb"></i> AI Recommendations</h2>
+                    <ul class="recommendation-list">
+                        <li><i class="fas fa-circle"></i> Increase green time at Main St intersection by 20%</li>
+                        <li><i class="fas fa-circle"></i> Activate dynamic routing for Highway 101</li>
+                    </ul>
+                    <button class="action-btn apply-all">Apply All Recommendations</button>
+                </section>
+            </div>
+            
+            <aside class="sidebar">
+                
+                <section class="card map-section">
+                    <h2><i class="fas fa-map-marker-alt"></i> Real-time Traffic Map</h2>
+                    <div id="trafficMap" style="height: 300px;">
+                        </div>
+                </section>
+                
+                <section class="card smart-signal-detail">
+                    <h2><i class="fas fa-signal"></i> Smart Traffic Signals <span class="ai-count">AI OPTIMIZED</span></h2>
+                    <div id="smartSignalList">
+                        </div>
+                </section>
+
+                <button class="action-btn manual-override-btn hidden" id="manualOverrideBtn">
+                    <i class="fas fa-hand-paper"></i> Release Manual Control
+                </button>
+                
+            </aside>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnDQXgmOa4dg5NvkXFiG6_Pu0UT5mT2zE&callback=initMap">
+    </script>
+</body>
+</html>
